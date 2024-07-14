@@ -19,9 +19,8 @@ export class FetchService {
       },
       body: JSON.stringify(request)
     }).then(response => {
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
-      }
+      debugger
+      
       return response.json();
     }).then(data => {
       return data;
