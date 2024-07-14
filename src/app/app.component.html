@@ -1,0 +1,52 @@
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <h4>Alert Buyer</h4>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitAlert()" class="example-form">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Enter your email">
+        <mat-error *ngIf="userForm.get('email')?.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Latitude</mat-label>
+        <input matInput formControlName="latitude" type="text" placeholder="Enter latitude">
+        <mat-error *ngIf="userForm.get('latitude')?.errors?.['required']">Latitude is required</mat-error>
+        <mat-error *ngIf="userForm.get('latitude')?.errors?.['pattern']">Please enter a valid latitude</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Longitude</mat-label>
+        <input matInput formControlName="longitude" type="text" placeholder="Enter longitude">
+        <mat-error *ngIf="userForm.get('longitude')?.errors?.['required']">Longitude is required</mat-error>
+        <mat-error *ngIf="userForm.get('longitude')?.errors?.['pattern']">Please enter a valid longitude</mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button type="submit" id="alertPayer">Submit</button>
+    </form>
+
+    <ngx-json-viewer [json]="responseAlertPayer"></ngx-json-viewer>
+  </mat-card-content>
+</mat-card>
+<br/>
+
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <h4>Buyer Email notifications</h4>
+    <form [formGroup]="notificationsForm" (ngSubmit)="onSubmitNotification()" class="example-form">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Enter your email">
+        <mat-error *ngIf="notificationsForm.get('email')?.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="notificationsForm.get('email')?.errors?.['email']">Please enter a valid email</mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button type="submit">Submit</button>
+
+    </form>
+
+    <ngx-json-viewer [json]="responseNotificationPayer"></ngx-json-viewer>
+  </mat-card-content>
+</mat-card>
